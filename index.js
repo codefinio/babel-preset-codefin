@@ -5,7 +5,6 @@ var transformModule = [require('@babel/plugin-transform-modules-commonjs'), {
 }]
 
 var defaultTargets = {
-  android: 30,
   chrome: 35,
   edge: 14,
   explorer: 9,
@@ -27,14 +26,14 @@ module.exports = function buildCodefinPreset(context, options) {
   
   return {
     presets: [
-      require('@babel/preset-es2015'),
-      require('@babel/preset-es2016'),
-      require('@babel/preset-es2017'),
-      require('@babel/preset-env').default(null, {
+      [require('@babel/preset-es2015').default],
+      [require('@babel/preset-es2016').default],
+      [require('@babel/preset-es2017').default],
+      [require('@babel/preset-env').default,{
         debug: debug,
         modules: false,
         targets: transpileTargets
-      })
+      }]
     ],
     plugins: [
       options && options.modules === false ? null : transformModule,
