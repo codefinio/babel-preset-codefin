@@ -34,7 +34,9 @@ module.exports = function buildCodefinPreset(context, options) {
         modules: false,
         targets: transpileTargets
       }],
-      [require('@babel/preset-stage-0').default]
+      [require('@babel/preset-stage-0').default,{
+        "decoratorsLegacy": true
+      }]
     ],
     plugins: [
       options && options.modules === false ? null : transformModule,
