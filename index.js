@@ -39,11 +39,7 @@ module.exports = function buildCodefinPreset(context, options) {
       }]
     ],
     plugins: [
-      options && options.modules === false ? null : transformModule,
-      [require("@babel/plugin-proposal-decorators"), { "legacy": true }],
-      [require("@babel/plugin-proposal-class-properties"), { "loose" : true }],
-      [require("@babel/plugin-proposal-optional-chaining")],
-      [require("@babel/plugin-proposal-pipeline-operator")]
+      options && options.modules === false ? null : transformModule
     ].filter(Boolean)
   }
 }
