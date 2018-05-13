@@ -33,7 +33,8 @@ module.exports = function buildCodefinPreset(context, options) {
         debug: debug,
         modules: false,
         targets: transpileTargets
-      }]
+      }],
+      [require('@babel/preset-stage-0').default]
     ],
     plugins: [
       options && options.modules === false ? null : transformModule,
