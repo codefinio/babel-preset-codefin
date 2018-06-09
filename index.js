@@ -1,6 +1,6 @@
 var assign = require('object.assign')
 
-var transformModule = [require('@babel/plugin-transform-modules-commonjs'), {
+var transformModule = [require('@babel/plugin-transform-modules-commonjs').default, {
   strict: false
 }]
 
